@@ -1,4 +1,4 @@
-import { Note } from '../models/student.js';
+import { Note } from '../models/note.js';
 import createHttpError from 'http-errors';
 
 // Отримати список усіх нотаток
