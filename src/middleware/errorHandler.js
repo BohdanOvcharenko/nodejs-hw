@@ -13,7 +13,7 @@ export const errorHandler = (err, req, res, next) => {
 
   res.status(500).json({
     message: isProd
-      ? "message: повідомлення про помилку"
+      ? "message: Internal Server Error"
       : err.message,
   });
 };
