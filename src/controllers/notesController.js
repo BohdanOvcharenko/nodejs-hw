@@ -2,7 +2,7 @@ import { Note } from '../models/note.js';
 import createHttpError from 'http-errors';
 
 // Отримати список усіх нотаток
-export const getNotes = async (req, res) => {
+export const getAllNotes = async (req, res) => {
   const notes = await Note.find();
   res.status(200).json(notes);
 };
@@ -44,7 +44,7 @@ export const updateNote = async (req, res) => {
   const updatedNote = await Note.findByIdAndUpdate(
     noteId,
     { title, content },
-    { new: true }
+    { returnDocument: 'after' }
   );
 
   if (!updatedNote) {
