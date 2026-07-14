@@ -19,7 +19,7 @@ export const getAllNotesSchema = {
     perPage: Joi.number().integer().min(5).max(20).default(10),
     // title: Joi.string().min(3).max(100),
     // content: Joi.string().min(10).max(1000),
-    search: Joi.string().trim().allow("").min(2).max(100),
+    search: Joi.string().trim().allow("").max(100),
     tag: Joi.string().valid(...TAGS),
   })
 };
@@ -27,7 +27,7 @@ export const getAllNotesSchema = {
 export const createNoteSchema = {
   [Segments.BODY]: Joi.object({
     title: Joi.string().min(1).max(100).required(),
-    content: Joi.string().allow('').max(1000),
+    content: Joi.string().allow(''),
     tag: Joi.string().valid(...TAGS),
   }),
 };
@@ -38,7 +38,7 @@ export const updateNoteSchema = {
   }),
   [Segments.BODY]: Joi.object({
     title: Joi.string().min(1).max(100),
-    content: Joi.string().allow('').max(1000),
+    content: Joi.string().allow(''),
     tag: Joi.string().valid(...TAGS),
   }).min(1),
 };
