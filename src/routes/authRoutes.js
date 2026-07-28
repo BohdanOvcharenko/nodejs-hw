@@ -1,11 +1,8 @@
 import { Router } from 'express';
 import { celebrate } from 'celebrate';
-import { loginUser, logoutUser, refreshUserSession, registerUser, requestResetEmail } from '../controllers/authController.js';
-import { loginUserSchema, registerUserSchema, requestResetEmailSchema } from '../validations/authValidation.js';
+import { loginUser, logoutUser, refreshUserSession, registerUser, requestResetEmail, resetPassword } from '../controllers/authController.js';
+import { loginUserSchema, registerUserSchema, requestResetEmailSchema, resetPasswordSchema } from '../validations/authValidation.js';
 
-
-import { resetPassword } from '../controllers/authController.js';
-import { resetPasswordSchema } from '../validations/authValidation.js';
 
 const router = Router();
 
